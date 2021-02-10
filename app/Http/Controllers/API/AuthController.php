@@ -36,8 +36,10 @@ class AuthController extends Controller
             'add_line_3' => $request->add_line_3,
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
+            'vehicle_type_id' => $request->vehicle_type_id,
             'district_id' => $request->district_id,
             'type' => $request->type,
+            'vehicle_no' => $request->vehicle_no
         ]);
 
         $token = $user->createToken('LaravelAuthApp')->accessToken;
@@ -83,7 +85,9 @@ class AuthController extends Controller
         $user->add_line_3 = $request->add_line_3;
         $user->latitude = $request->latitude;
         $user->longitude = $request->longitude;
+        $user->vehicle_type_id = $request->vehicle_type_id;
         $user->district_id = $request->district_id;
+        $user->vehicle_no = $request->vehicle_no;
         $user->save();
 
         return response()->json(['profileUpdate' => [$user],'message' => 'Updated'], 200);

@@ -22,6 +22,7 @@ class AlterUsersTable extends Migration
 			$table->string('add_line_3')->nullable();
             $table->float('latitude', 10, 6)->nullable()->index();
 			$table->float('longitude', 10, 6)->nullable()->index();
+			$table->integer('vehicle_type_id')->nullable();
             $table->integer('district_id')->nullable();
             $table->integer('type')->nullable();
 
