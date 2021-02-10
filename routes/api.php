@@ -24,7 +24,5 @@ Route::put('logout', [App\Http\Controllers\API\AuthController::class, 'logout'])
 
 
 Route::group(['middleware' => 'api'], function () {
-    //Route::get('test', [App\Http\Controllers\API\TestController::class, 'index']);
-    Route::get('vehicle-types', [App\Http\Controllers\API\VehicleTypeController::class, 'index']);
     Route::get('districts', [App\Http\Controllers\API\DistrictController::class, 'index']);
 });

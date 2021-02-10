@@ -34,10 +34,8 @@ class User extends Authenticatable
         'add_line_3',
         'latitude',
         'longitude',
-        'vehicle_type_id',
         'district_id',
         'type',
-        'vehicle_no'
     ];
 
     /**
@@ -69,7 +67,6 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
         'district',
-        'vehicleType'
     ];
 
     // protected $with = [
@@ -98,18 +95,8 @@ class User extends Authenticatable
         return $this->belongsTo(District::class);
     }
 
-    public function vehicleType()
-    {
-        return $this->belongsTo(VehicleType::class);
-    }
-
     public function getDistrictAttribute()
     {
         return ($this->district()->first())?($this->district()->first()->name):(null);
-    }
-
-    public function getVehicleTypeAttribute()
-    {
-        return ($this->vehicleType()->first())?($this->vehicleType()->first()->name):(null);
     }
 }
