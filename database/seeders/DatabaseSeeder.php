@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             RoleUserTableSeeder::class,
             DistrictsTableSeeder::class,
             VehicleTypesTableSeeder::class,
+            RoutesTableSeeder::class,
+            CategoriesTableSeeder::class
         ]);
     }
 }
