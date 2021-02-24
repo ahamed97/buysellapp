@@ -17,27 +17,33 @@ class CategoriesTableSeeder extends Seeder
         $data = [
             [
                 'name'           => 'Dairy',
-                'id'   =>  '1'
+                'id'   =>  '1',
+                'images' => '["http://easybuyapp.ga/images/Dairy1.jpeg","http://easybuyapp.ga/images/Dairy2.jpeg","http://easybuyapp.ga/images/Dairy3.jpg"]'
             ],
             [
                 'name'           => 'Fish',
-                'id'   =>  '2'
+                'id'   =>  '2',
+                'images' => '["http://easybuyapp.ga/images/Fish1.jpg","http://easybuyapp.ga/images/Fish2.jpg","http://easybuyapp.ga/images/Fish3.jpg"]'
             ],
             [
                 'name'           => 'Vegitables',
-                'id'   =>  '3'
+                'id'   =>  '3',
+                'images' => '["http://easybuyapp.ga/images/Vegitables1.jpg","http://easybuyapp.ga/images/Vegitables1.jpg","http://easybuyapp.ga/images/Vegitables1.jpg"]'
             ],
             [
                 'name'           => 'Bakery Products',
-                'id'   =>  '4'
+                'id'   =>  '4',
+                'images' => '["http://easybuyapp.ga/images/BakeryProducts1.jpg","http://easybuyapp.ga/images/BakeryProducts2.jpg","http://easybuyapp.ga/images/BakeryProducts3.jpg"]'
             ],
             [
                 'name'           => 'Grocery Items',
-                'id'   =>  '5'
+                'id'   =>  '5',
+                'images' => '["http://easybuyapp.ga/images/GroceryItems1.jpg","http://easybuyapp.ga/images/GroceryItems2.jpg","http://easybuyapp.ga/images/GroceryItems3.jpg"]'
             ],
             [
                 'name'           => 'Services',
-                'id'   =>  '6'
+                'id'   =>  '6',
+                'images' => '["http://easybuyapp.ga/images/Services1.jpg","http://easybuyapp.ga/images/Services2.jpg","http://easybuyapp.ga/images/Services3.jpg"]'
             ]
         ];
 

@@ -11,7 +11,8 @@ class Category extends Model
 
     protected $fillable = [
         'name',
+        'images'
     ];
 
-    protected $visible = ['id','name'];
+    protected $visible = ['id','name','images'];
 }
