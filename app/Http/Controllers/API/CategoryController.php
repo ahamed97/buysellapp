@@ -13,6 +13,10 @@ class CategoryController extends Controller
 
         $categories = Category::all();
 
+        foreach($categories as $category){
+            $category->images = [json_decode($category->images)];
+        }
+
         return response()->json(['categories' => $categories,'message' => 'Categories get'], 200);
     }
 }
