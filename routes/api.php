@@ -38,4 +38,10 @@ Route::group(['middleware' => 'api'], function () {
     Route::post('advertisement', [App\Http\Controllers\API\AdvertisementController::class, 'store']);
     Route::delete('advertisement', [App\Http\Controllers\API\AdvertisementController::class, 'destroy']);
     Route::put('advertisement/update', [App\Http\Controllers\API\AdvertisementController::class, 'update']);
+
+    Route::get('orders', [App\Http\Controllers\API\OrderController::class, 'index']);
+    Route::get('order', [App\Http\Controllers\API\OrderController::class, 'show']);
+    Route::post('order', [App\Http\Controllers\API\OrderController::class, 'store']);
+    Route::delete('order', [App\Http\Controllers\API\OrderController::class, 'destroy']);
+    //Route::put('order/update', [App\Http\Controllers\API\OrderController::class, 'update']);
 });
