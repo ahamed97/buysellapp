@@ -80,4 +80,29 @@ class AdvertisementController extends Controller
 
         return response()->json(['advertisementCreate' => [$advertisement],'message'=>'Created'], 200);
     }
+
+    public function update(Request $request)
+    {
+        $this->validate($request, [
+            'id' => 'required',
+        ]);
+        $advertisement = Advertisement::find($request->id);
+        $advertisement->category_id = $request->category_id;
+        $advertisement->district_id = $request->district_id;
+        $advertisement->route_id = $request->route_id;
+        $advertisement->vehicle_type_id = $request->vehicle_type_id;
+        $advertisement->seller_id = $request->seller_id;
+        $advertisement->title = $request->title;
+        $advertisement->description = $request->description;
+        $advertisement->sub_description = $request->sub_description;
+        $advertisement->date = $request->date;
+        $advertisement->from_time = $request->from_time;
+        $advertisement->to_time = $request->to_time;
+        $advertisement->save();
+
+
+        $advertisement = Advertisement::find($advertisement->id);
+
+        return response()->json(['advertisementUpdate' => [$advertisement],'message'=>'Updated'], 200);
+    }
 }

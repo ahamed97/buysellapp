@@ -37,4 +37,5 @@ Route::group(['middleware' => 'api'], function () {
     Route::get('advertisement', [App\Http\Controllers\API\AdvertisementController::class, 'show']);
     Route::post('advertisement', [App\Http\Controllers\API\AdvertisementController::class, 'store']);
     Route::delete('advertisement', [App\Http\Controllers\API\AdvertisementController::class, 'destroy']);
+    Route::put('advertisement/update', [App\Http\Controllers\API\AdvertisementController::class, 'update']);
 });
