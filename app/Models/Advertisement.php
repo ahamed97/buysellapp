@@ -32,6 +32,7 @@ class Advertisement extends Model
         'route',
         'seller_first_name',
         'seller_last_name',
+        'seller_phone',
     ];
 
     public function district()
@@ -87,5 +88,10 @@ class Advertisement extends Model
     public function getSellerLastNameAttribute()
     {
         return ($this->seller()->first())?($this->seller()->first()->last_name):(null);
+    }
+
+    public function getSellerPhoneAttribute()
+    {
+        return ($this->seller()->first())?($this->seller()->first()->phone):(null);
     }
 }
