@@ -29,7 +29,9 @@ class Advertisement extends Model
         'category',
         'district',
         'vehicle_type',
-        'route'
+        'route',
+        'seller_first_name',
+        'seller_last_name',
     ];
 
     public function district()
@@ -45,6 +47,11 @@ class Advertisement extends Model
     public function vehicleType()
     {
         return $this->belongsTo(VehicleType::class);
+    }
+
+    public function seller()
+    {
+        return $this->belongsTo(User::class,'seller_id');
     }
 
     public function route()
@@ -70,5 +77,15 @@ class Advertisement extends Model
     public function getRouteAttribute()
     {
         return ($this->route()->first())?($this->route()->first()->route):(null);
+    }
+
+    public function getSellerFirstNameAttribute()
+    {
+        return ($this->seller()->first())?($this->seller()->first()->name):(null);
+    }
+
+    public function getSellerLastNameAttribute()
+    {
+        return ($this->seller()->first())?($this->seller()->first()->last_name):(null);
     }
 }
