@@ -108,6 +108,10 @@ class AuthController extends Controller
         if($request->vehicle_no){
             $user->vehicle_no = $request->vehicle_no;
         }
+
+        if($request->phone){
+            $user->phone = $request->phone;
+        }
         $user->save();
 
         return response()->json(['profileUpdate' => [$user],'message' => 'Updated'], 200);
