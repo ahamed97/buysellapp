@@ -78,16 +78,36 @@ class AuthController extends Controller
             'id' => 'required',
         ]);
         $user = User::find($request->id);
-        $user->name = $request->name;
-        $user->last_name = $request->last_name;
-        $user->add_line_1 = $request->add_line_1;
-        $user->add_line_2 = $request->add_line_2;
-        $user->add_line_3 = $request->add_line_3;
-        $user->latitude = $request->latitude;
-        $user->longitude = $request->longitude;
-        $user->vehicle_type_id = $request->vehicle_type_id;
-        $user->district_id = $request->district_id;
-        $user->vehicle_no = $request->vehicle_no;
+        if($request->name){
+            $user->name = $request->name;
+        }
+        if($request->last_name){
+            $user->last_name = $request->last_name;
+        }
+        if($request->add_line_1){
+            $user->add_line_1 = $request->add_line_1;
+        }
+        if($request->add_line_2){
+            $user->add_line_2 = $request->add_line_2;
+        }
+        if($request->add_line_3){
+            $user->add_line_3 = $request->add_line_3;
+        }
+        if($request->latitude){
+            $user->latitude = $request->latitude;
+        }
+        if($request->longitude){
+            $user->longitude = $request->longitude;
+        }
+        if($request->vehicle_type_id){
+            $user->vehicle_type_id = $request->vehicle_type_id;
+        }
+        if($request->district_id){
+            $user->district_id = $request->district_id;
+        }
+        if($request->vehicle_no){
+            $user->vehicle_no = $request->vehicle_no;
+        }
         $user->save();
 
         return response()->json(['profileUpdate' => [$user],'message' => 'Updated'], 200);
