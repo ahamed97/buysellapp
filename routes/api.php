@@ -43,5 +43,5 @@ Route::group(['middleware' => 'api'], function () {
     Route::get('order', [App\Http\Controllers\API\OrderController::class, 'show']);
     Route::post('order', [App\Http\Controllers\API\OrderController::class, 'store']);
     Route::delete('order', [App\Http\Controllers\API\OrderController::class, 'destroy']);
-    //Route::put('order/update', [App\Http\Controllers\API\OrderController::class, 'update']);
+    Route::put('order/update', [App\Http\Controllers\API\OrderController::class, 'update']);
 });

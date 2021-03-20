@@ -19,6 +19,8 @@ class OrderController extends Controller
             'description_2' => $request->description_2,
             'description_3' => $request->description_3,
             'status' => 1,
+            'longitude' => $request->longitude,
+            'latitude' => $request->latitude,
         ]);
 
         $order = Order::find($order->id);
@@ -66,5 +68,13 @@ class OrderController extends Controller
         $orders = $orders->get();
 
         return response()->json(['orders' => $orders,'message' => 'Orders get'], 200);
+    }
+
+    public function update(Request $request)
+    {
+
+        $order = Order::where('id',$request->id)->update(['status' => $request->status]);
+
+        return response()->json(['orderUpdate' => [],'message' => 'order updated'], 200);
     }
 }
