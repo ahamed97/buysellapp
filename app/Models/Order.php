@@ -27,7 +27,8 @@ class Order extends Model
     ];
 
     protected $visible = ['id','customer_id','advertisement_id','order_details','description_1','description_2','description_3'
-        ,'status','add_line_1','add_line_2','add_line_3','latitude','longitude','name','last_name','phone','add_line_1','add_line_2','add_line_3'];
+        ,'status','add_line_1','add_line_2','add_line_3','latitude','longitude','name','last_name','phone','add_line_1','add_line_2','add_line_3','created_at',
+        'updated_at'];
 
     protected $appends = ['name','last_name','phone','add_line_1','add_line_2','add_line_3'];
 
