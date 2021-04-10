@@ -22,9 +22,7 @@ class Advertisement extends Model
         'sub_description',
         'date',
         'from_time',
-        'to_time',
-        'created_at',
-        'updated_at'
+        'to_time'
     ];
 
     protected $appends = [
