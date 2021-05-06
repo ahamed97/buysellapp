@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
+use Exception;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class AuthController extends Controller
@@ -171,5 +173,42 @@ class AuthController extends Controller
         ]);
 
         return response()->json(['logout' => [],'message' => 'Logout'], 200);
+    }
+
+    /**
+     * profile pic
+     */
+    public function pic(Request $request)
+    {
+        $this->validate($request, [
+            'user_id' => 'required',
+        ]);
+        $path=null;
+
+        try{
+            if($request->file){
+                $diskName = 'public_uploads';
+                $disk = Storage::disk($diskName);
+                if(is_array($request->file)){
+                    if(count($request->file) == 1){
+                        $path = url('uploads/'.$request->file[0]->store('pics', 'public_uploads'));
+                    }
+                }
+                else{
+                    $path = url('uploads/'.$request->file->store('pics', 'public_uploads'));
+                }
+            }
+
+            User::where('id',$request->user_id)->update(['profile_photo_path' => $path]);
+
+            $response['user_id'] = $request->user_id;
+            $response['profile_photo_path'] = $path;
+        }
+        catch(Exception $e)
+        {
+            return response()->json(['pic' => [],'message' => 'Something went wrong please try again'], 200);
+        }
+
+        return response()->json(['pic' => [$response]], 200);
     }
 }
